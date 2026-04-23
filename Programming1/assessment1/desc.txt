@@ -1,0 +1,11 @@
+O programa desenvolvido para o Trabalho Prático 1 da disciplina de Laboratório de Programação é um sistema de cadastro de livros.
+
+A finalidade do programa é armazenar informações de um estoque de livros em um arquivo .csv, através de um menu em Python, que oferece 
+funcionalidades para listar, adicionar, pesquisar e remover livros. Além disso, o programa inclui uma função para exportar as 
+informações manipuladas durante o uso para um arquivo .csv.
+
+A implementação foi realizada por meio de várias funções, organizadas em módulos localizados no arquivo module.py, que vão do 
+módulo um até cinco, correspondendo às funcionalidades de Listar, Adicionar, Pesquisar, Deletar e Exportar, respectivamente. 
+Esses módulos são importados para o arquivo main.py, onde suas funções são chamadas na função main() e utilizadas de forma 
+sequencial na função main_menu(), garantindo que o programa execute suas operações de maneira correta.
+
