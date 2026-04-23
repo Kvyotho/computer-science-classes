@@ -1,0 +1,318 @@
+Descrição de Casos de Uso
+1. Caso de Uso: Processar Locação (Atendimento ao Cliente)
+Identificador: UC-AT-001
+Nome: Processar Locação
+Atores: Funcionário, Cliente (Sócio ou Dependente)
+Objetivo: Permitir que um funcionário registre o aluguel de uma mídia (fita/DVD) para um cliente.
+
+Pré-Condições:
+
+O cliente deve estar devidamente cadastrado no sistema
+
+A mídia deve estar disponível para locação
+
+Não deve existir reserva ativa para a mídia solicitada
+
+Fluxo Normal:
+
+O funcionário seleciona a opção "Nova Locação"
+
+O sistema exibe o formulário de locação
+
+O funcionário informa o número de inscrição do cliente
+
+O sistema valida o cadastro do cliente e exibe seus dados
+
+O funcionário seleciona a mídia a ser locada
+
+O sistema verifica a disponibilidade da mídia
+
+O sistema calcula automaticamente o valor da locação com base na classe do título
+
+O sistema define a data de devolução prevista com base na classe do título
+
+O funcionário confirma os dados da locação
+
+O sistema registra a locação e atualiza o status da mídia para "indisponível"
+
+O sistema emite o comprovante de locação
+
+Fim do caso de uso
+
+Fluxos de Exceção:
+
+FE-001: Cliente não encontrado
+
+No passo 4, se o cliente não for encontrado:
+
+O sistema exibe mensagem de erro
+
+Retorna ao passo 3
+
+FE-002: Mídia indisponível
+
+No passo 6, se a mídia não estiver disponível:
+
+O sistema exibe mensagem de indisponibilidade
+
+Oferece opção de fazer reserva
+
+Retorna ao passo 5
+
+FE-003: Cliente com pendências
+
+No passo 4, se o cliente possui locações em atraso ou multas não pagas:
+
+O sistema bloqueia a locação
+
+Exibe mensagem informando as pendências
+
+Fim do caso de uso
+
+Pós-Condições:
+
+A locação foi registrada no sistema
+
+O status da mídia foi atualizado para "locada"
+
+O histórico do cliente foi atualizado
+
+Foi gerado um comprovante de locação
+
+2. Caso de Uso: Cadastrar Título (Controle de Acervo)
+Identificador: UC-AC-001
+Nome: Cadastrar Título
+Atores: Funcionário
+Objetivo: Permitir que um funcionário adicione um novo título ao catálogo da locadora.
+
+Pré-Condições:
+
+O funcionário deve estar autenticado no sistema
+
+O distribuidor do título deve estar cadastrado no sistema
+
+As categorias e classes devem estar previamente definidas
+
+Fluxo Normal:
+
+O funcionário seleciona a opção "Cadastrar Título"
+
+O sistema exibe o formulário de cadastro de título
+
+O funcionário preenche os dados básicos (nome, título original, ano, nacionalidade, sinopse)
+
+O funcionário seleciona a categoria do título
+
+O funcionário seleciona a classe inicial do título
+
+O funcionário seleciona o distribuidor
+
+O funcionário adiciona informações artísticas (atores, diretor)
+
+O sistema valida os dados informados
+
+O funcionário confirma o cadastro
+
+O sistema registra o novo título no catálogo
+
+O sistema exibe mensagem de confirmação
+
+Fim do caso de uso
+
+Fluxos de Exceção:
+
+FE-001: Dados inválidos
+
+No passo 8, se algum campo obrigatório não for preenchido:
+
+O sistema exibe mensagem indicando os campos incorretos
+
+Retorna ao passo 3
+
+FE-002: Título duplicado
+
+No passo 8, se já existir título com mesmo nome e ano:
+
+O sistema alerta sobre possível duplicidade
+
+Oferece opção de cancelar ou prosseguir
+
+Se cancelar, retorna ao passo 3
+
+FE-003: Distribuidor não encontrado
+
+No passo 6, se o distribuidor não estiver cadastrado:
+
+O sistema oferece opção de cadastrar novo distribuidor
+
+Se recusar, retorna ao passo 6
+
+Pós-Condições:
+
+O título foi adicionado ao catálogo da locadora
+
+O título está disponível para associar mídias físicas
+
+O título pode ser consultado no terminal de autoatendimento
+
+gere mais 2 alternativas
+Descrição de Casos de Uso - Alternativas Adicionais
+3. Caso de Uso: Fazer Reserva (Atendimento ao Cliente)
+Identificador: UC-AT-002
+Nome: Fazer Reserva
+Atores: Cliente (Sócio ou Dependente)
+Objetivo: Permitir que um cliente reserve um título que está atualmente indisponível.
+
+Pré-Condições:
+
+O cliente deve estar devidamente cadastrado no sistema
+
+O título desejado deve estar completamente indisponível (todas as mídias locadas)
+
+Não deve existir reserva ativa do mesmo cliente para o mesmo título
+
+Fluxo Normal:
+
+O cliente acessa o sistema de reservas
+
+O sistema solicita identificação (número de inscrição)
+
+O cliente informa seus dados de acesso
+
+O sistema autentica o cliente e exibe o catálogo
+
+O cliente seleciona o título desejado
+
+O sistema verifica a disponibilidade do título
+
+O sistema informa que o título está indisponível e oferece opção de reserva
+
+O cliente seleciona o tipo de mídia preferencial (fita ou DVD)
+
+O sistema registra a reserva com data/hora atual
+
+O sistema informa a posição na fila de reservas
+
+O sistema emite comprovante de reserva
+
+Fim do caso de uso
+
+Fluxos de Exceção:
+
+FE-001: Título disponível
+
+No passo 6, se houver mídias disponíveis:
+
+O sistema informa que não é possível reservar títulos disponíveis
+
+Oferece opção de locação imediata
+
+Fim do caso de uso
+
+FE-002: Reserva duplicada
+
+No passo 7, se o cliente já possui reserva ativa para o título:
+
+O sistema informa sobre a reserva existente
+
+Mostra a posição atual na fila
+
+Fim do caso de uso
+
+FE-003: Limite de reservas excedido
+
+No passo 8, se o cliente atingiu o limite máximo de reservas:
+
+O sistema informa sobre o limite
+
+Sugere aguardar a liberação de uma reserva atual
+
+Fim do caso de uso
+
+Pós-Condições:
+
+A reserva foi registrada no sistema
+
+O cliente foi colocado na fila de espera do título
+
+O sistema monitorará a devolução de mídias para acionar o próximo da fila
+
+4. Caso de Uso: Alterar Classe do Título (Controle de Acervo)
+Identificador: UC-AC-002
+Nome: Alterar Classe do Título
+Atores: Funcionário
+Objetivo: Permitir a atualização da classe de um título (ex: de "Lançamento" para "Ouro") para ajustar valor e prazo de locação.
+
+Pré-Condições:
+
+O funcionário deve estar autenticado no sistema
+
+O título deve estar previamente cadastrado
+
+A nova classe deve estar definida no sistema
+
+Fluxo Normal:
+
+O funcionário seleciona a opção "Gerenciar Títulos"
+
+O sistema exibe a lista de títulos cadastrados
+
+O funcionário localiza e seleciona o título desejado
+
+O sistema exibe os detalhes completos do título
+
+O funcionário seleciona a opção "Alterar Classe"
+
+O sistema exibe a classe atual e lista classes disponíveis
+
+O funcionário seleciona a nova classe
+
+O sistema calcula automaticamente os novos valores e prazos
+
+O funcionário confirma a alteração
+
+O sistema registra a mudança com data/hora e identificação do responsável
+
+O sistema atualiza todos os cálculos futuros para o título
+
+O sistema exibe mensagem de confirmação
+
+Fim do caso de uso
+
+Fluxos de Exceção:
+
+FE-001: Título com locações ativas
+
+No passo 7, se o título possuir mídias atualmente locadas:
+
+O sistema alerta sobre locações em andamento
+
+Pergunta se deseja aplicar apenas para futuras locações
+
+Se confirmado, prossegue com a alteração
+
+FE-002: Mesma classe atual
+
+No passo 7, se a nova classe for igual à atual:
+
+O sistema informa que não há alteração necessária
+
+Retorna ao passo 6
+
+FE-003: Classe inválida para o título
+
+No passo 7, se a classe selecionada for incompatível (ex: classe inexistente):
+
+O sistema exibe mensagem de erro
+
+Retorna ao passo 6
+
+Pós-Condições:
+
+A classe do título foi atualizada no sistema
+
+Os valores e prazos de locação foram redefinidos
+
+O histórico de alterações foi registrado
+
+As futuras locações usarão os novos parâmetros
