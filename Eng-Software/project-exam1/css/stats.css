@@ -1,0 +1,96 @@
+/* ===== CONTAINER PRINCIPAL ===== */
+.container {
+  max-width: 900px;
+  margin: 2rem auto;
+  color: var(--text-clr);
+  background: var(--base-clr);
+  border: 1px solid var(--line-clr);
+  border-radius: 1em;
+  padding: 2em;
+}
+
+/* ===== GRID DOS CARDS ===== */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.2rem;
+  margin: 2rem 0;
+}
+
+/* ===== CARDS ===== */
+.stat-card {
+  background: var(--hover-clr);
+  border: 1px solid var(--line-clr);
+  border-radius: 12px;
+  padding: 1.2rem;
+  text-align: center;
+  transition: transform 0.2s ease, background 0.3s ease, border-color 0.3s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-4px);
+  background: color-mix(in srgb, var(--hover-clr) 90%, var(--accent-clr) 10%);
+  border-color: var(--accent-clr);
+}
+
+.stat-card h3 {
+  font-size: 1.1rem;
+  color: var(--secondary-text-clr);
+  margin-bottom: 8px;
+}
+
+.stat-card p {
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+/* ===== CORES DINÂMICAS ===== */
+#completion-rate {
+  color: var(--accent-clr);
+}
+
+#completed-tasks {
+  color: #4caf50;
+}
+
+#pending-tasks {
+  color: #ffc107;
+}
+
+#late-tasks {
+  color: #f44336;
+}
+
+/* ===== GRÁFICO ===== */
+.chart-card {
+  margin: 2rem 0;
+}
+
+.chart-container {
+  width: 260px;
+  height: 260px;
+  margin: 1rem auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* ===== MÉDIAS SEMANAIS ===== */
+#weekly-averages {
+  margin-top: 1.5rem;
+  text-align: left;
+  background: var(--hover-clr);
+  border: 1px solid var(--line-clr);
+  border-radius: 12px;
+  padding: 1.2rem;
+}
+
+#weekly-averages h3 {
+  color: var(--accent-clr);
+  margin-bottom: 0.5rem;
+}
