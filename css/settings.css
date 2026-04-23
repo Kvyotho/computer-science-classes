@@ -1,0 +1,110 @@
+.settings-container {
+    max-width: 600px;
+    margin: 50px auto;
+    background-color: var(--base-clr);
+    color: var(--text-clr);
+    padding: 2em;
+    border-radius: 1em;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.settings-container h2 {
+    text-align: center;
+    color: var(--accent-clr);
+}
+
+.setting-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--hover-clr);
+    padding: 1em;
+    border-radius: 0.7em;
+}
+
+.setting-item label {
+    font-weight: 500;
+}
+
+.setting-item select,
+.setting-item input[type="checkbox"] {
+    padding: 5px 10px;
+    border-radius: 0.5em;
+    border: 1px solid var(--line-clr);
+    background-color: var(--base-clr);
+    color: var(--text-clr);
+    cursor: pointer;
+}
+
+.setting-item input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.buttons button {
+    background-color: var(--accent-clr);
+    color: var(--base-clr);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 0.7em;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.2s;
+}
+
+.buttons button:hover {
+    background-color: var(--hover-clr);
+    color: var(--accent-clr);
+}
+
+/* Responsivo */
+@media(max-width: 480px) {
+    .settings-container {
+        margin: 20px;
+        padding: 1em;
+    }
+
+    .setting-item {
+        flex-direction: column;
+        gap: 10px;
+        align-items: flex-start;
+    }
+
+    .buttons {
+        flex-direction: column;
+    }
+}
+
+#notification-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+.notification {
+  background-color: var(--accent-clr);
+  color: var(--text-clr);
+  padding: 1em 1.5em;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+  margin-bottom: 10px;
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: all 0.4s ease;
+  font-weight: 500;
+}
+
+.notification.show {
+  opacity: 1;
+  transform: translateY(0);
+}
