@@ -1,0 +1,167 @@
+<html>
+
+<head>
+    <title>Portfolio Matheus Cetrangolo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header id="header">
+        <div class="container">
+            <nav>
+                <img src="imagens/logo.png" alt="logoph" class="HomeLogo">
+                <ul>
+                    <li><a href="#header">Home</a></li>
+                    <li><a href="#sobre">Sobre mim</a></li>
+                    <li><a href="#sobre">Experiência</a></li>
+                    <li><a href="#portfolio">Projetos</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
+            </nav>
+            <div class="Titulo">
+                <h1>Matheus Cetrangolo</h1>
+                <p>(Futuro) Cientista da Computação</p>
+            </div>
+        </div>
+
+    </header>
+
+    <div id="sobre">
+        <div class="container">
+            <div class="row">
+                <div class="sobre-col1">
+                    <img src="imagens/profilepic.PNG" alt="foto-de-perfil">
+                </div>
+                <div class=" sobre-col2">
+                    <h1 class="subtitulo">Sobre mim</h1>
+                    <p>Estudante de Ciências da Computação, previamente formado em Design de Produto. <br> Sou uma pessoa
+                        focada e resiliente, com facilidade para aprender. <br> Possuo interesse nas áreas de tecnologia
+                        relacionadas a bancos de dados, cibersegurança e computação gráfica. <br> Além disso também possuo
+                        interesse em áreas do design worldbuilding, character design, game design e storytelling.
+                    </p>
+
+                    <div class="tab-titulos">
+                        <p class="tab-links active-link" onclick="opentab('habilidades')">Habilidades</p>
+                        <p class="tab-links" onclick="opentab('experiencia')">Experiência</p>
+                        <p class="tab-links" onclick="opentab('formacao')">Formação</p>
+                    </div>
+                    <div class="tab-contents active-tab" id="habilidades">
+                        <ul>
+                            <li><span>Progamação</span><br>C - Básico <br> Python - Básico</li>
+                            <li><span>Design</span><br>Adobe Photoshop - Avançado<br> Adobe Illustrator - Intermediário
+                                <br> Adobe Indesign - Intermediário
+                            </li>
+                            <li><span>Computação Gráfica</span> <br>Source Filmmaker - Intermediário <br> Rhinoceros 3D
+                                - Básico</li>
+                            <li><span>Idiomas</span> <br>Português - Nativo <br> Inglês - Avançado </li>
+                        </ul>
+                    </div>
+                    <div class="tab-contents" id="experiencia">
+                        <ul>
+                            <li><span>2024 - Atualmente</span><br>Estudante Ciências da Computação</li>
+                            <li><span>2019 - 2023</span><br>Estudante Design de Produto</li>
+                        </ul>
+                    </div>
+                    <div class="tab-contents" id="formacao">
+                        <ul>
+                            <li><span>2024</span><br>UVV - Ciências da Computação - Cursando</li>
+                            <li><span>2023</span><br>UVV - Design de Produto - Bacharelado</li>
+                            <li><span>2019</span><br>CEIC - Ensino Médio</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="portfolio" id="portfolio">
+        <div class="container">
+            <h1 class="subtitulo">Projetos</h1>
+            <div class="projetos-lista">
+                <div class="projetos">
+                    <img src="imagens/helldivers stratagem trainer projeto.PNG" alt="scratch_projeto">
+                    <div class="layer">
+                        <h3>Jogo no Scratch</h3>
+                        <p>Jogo de ritmo feito no Scratch, simulando uma mecânica do jogo Helldivers 2</p>
+                        <a href="https://scratch.mit.edu/projects/985068198" target="_blank"> <img
+                                src="imagens/paper-plane-regular.svg" height="20px" alt="linkprosprojetos"></a>
+                    </div>
+                </div>
+                <div class="projetos">
+                    <img src="imagens/projeto scp thaumiel.PNG" alt="tcc_design">
+                    <div class="layer">
+                        <h3>Projeto SCP: Thaumiel</h3>
+                        <p>Trabalho de Conclusão de Curso de Design de Produto, um jogo
+                            baseado no universo SCP, onde os protagonistas são SCPs da classe Thaumiel </p>
+                        <a href="#"><img src="imagens/paper-plane-regular.svg" height="20px" alt="linkprosprojetos"></a>
+                    </div>
+                </div>
+                <div class="projetos">
+                    <img src="imagens/metro 2035 livro.PNG" alt="metro_2035">
+                    <div class="layer">
+                        <h3>Capa de Livro</h3>
+                        <p>Uma projeto de design onde eu desenvolvi uma capa alternativa para o Livro Metro 2035</p>
+                        <a href="#"><img src="imagens/paper-plane-regular.svg" height="20px" alt="linkprosprojetos"></a>
+                    </div>
+                </div>
+            </div>
+            <a href="#" class="button3">Veja mais</a>
+        </div>
+    </div>
+
+
+    <script>
+
+        var tablinks = document.getElementsByClassName("tab-links");
+        var tabcontents = document.getElementsByClassName("tab-contents");
+
+        function opentab(tabname) {
+            for (tablink of tablinks) {
+                tablink.classList.remove("active-link");
+            }
+            for (tabcontent of tabcontents) {
+                tabcontent.classList.remove("active-tab");
+            }
+            event.currentTarget.classList.add("active-link");
+            document.getElementById(tabname).classList.add("active-tab");
+
+        }
+    </script>
+
+    <footer>
+        <div class="contato" id="contato">
+            <div class="container">
+                <div class="row">
+                    <div class="contato-col1">
+                        <h1 class="subtitulo">Entre em Contato</h1>
+                        <p><img src="imagens/envelope-solid.svg" alt="gmail_icon">matheuscetrangolo12@gmail.com</p>
+                        <p><img src="imagens/square-whatsapp.svg" alt="celular_icon">(027) 99702-2790</p>
+                        <div class="social-icons">
+                            <a href="https://www.instagram.com/kvyotho/"> <img src="imagens/square-instagram.svg"
+                                    alt="instagram_icon"></a>
+                            <a href="https://www.linkedin.com/"> <img src="imagens/linkedin.svg"
+                                    alt="linkedin_icon"></a>
+                            <a href="https://steamcommunity.com/id/wisdomisacircle/" target="_blank"> <img
+                                    src="imagens/square-steam.svg" alt="steam_icon"></a>
+                            <a href="https://github.com/Kvyotho"> <img src="imagens/square-github.svg"
+                                    alt="github_icon"></a>
+                        </div>
+                        <a href="" class="button button2">Baixar Currículo</a>
+                    </div>
+                    <div class="contato-col2">
+                        <form>
+                            <input type="text" name="Name" placeholder="Seu Nome" required>
+                            <input type="text" name="email" placeholder="Seu E-Mail" required>
+                            <textarea name="Message" rows="7" placeholder="Sua Mensagem"></textarea>
+                            <button type="submit" class="button button2">Enviar</button>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>
